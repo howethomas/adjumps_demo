@@ -9,7 +9,10 @@ col1, col2 = st.columns([3,1])
 with col1:
     talk_to_agent = st.checkbox('Need to talk to an agent?')
     if talk_to_agent:
-        webrtc_streamer(key="sample")
+        webrtc_streamer(key="sample", 
+        rtc_configuration={  
+            "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+        }
 
     image = Image.open('mustang.jpeg')
     st.image(image, caption='The Iconic Muscle Car', use_column_width=True)
